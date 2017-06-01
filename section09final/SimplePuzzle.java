@@ -11,6 +11,7 @@ import org.teachingextensions.logo.utils.PuzzleUtils.Puzzle;
 import org.teachingextensions.logo.utils.PuzzleUtils.PuzzleAnimation;
 import org.teachingextensions.logo.utils.PuzzleUtils.PuzzleBoard;
 import org.teachingextensions.logo.utils.PuzzleUtils.PuzzleState;
+import org.teachingextensions.logo.utils.PuzzleUtils.PuzzleWindow;
 
 public class SimplePuzzle implements Runnable
 {
@@ -57,10 +58,11 @@ public class SimplePuzzle implements Runnable
     // 
     PuzzleBoard board = new PuzzleBoard(puzzle, solution);
     // 
-    //           Create a new Puzzle Window that takes a parameter named board -- #1.1
+    PuzzleWindow blank = new PuzzleWindow(board);
     //            
     new Thread(new PuzzleAnimation(board)).start();
-    //           Set the current puzzle window visibility to be true --#1.2             
+    //           Set the current puzzle window visibility to be true --#1.2     
+    PuzzleWindow.this.setWindowVisible(true);
     //            
     //      End of try --#5.2
     //          Create a Message Box that shows the message "This puzzle is not solvable, click ok to try again" --#5.4
